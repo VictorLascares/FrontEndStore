@@ -47,6 +47,17 @@ h3 { font-size: 2.4rem; }
 .header__logo {
     margin: 3rem 0;
 }
+/* Footer */
+.footer {
+    background-color: var(--dark-primary);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__text {
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 2.2rem;
+}
 /* Nav */
 .nav {
     background-color: var(--dark-primary);

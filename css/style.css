@@ -3,7 +3,7 @@
     --dark-primary: #12005E;
     --secondary: #FFCE00;
     --dark-secondary: rgb(233,287,2);
-    --light: FFF;
+    --light: #FFF;
     --dark: #000;
 
     --main-font: 'Staatliches', cursive;;
@@ -46,4 +46,21 @@ h3 { font-size: 2.4rem; }
 }
 .header__logo {
     margin: 3rem 0;
+}
+/* Nav */
+.nav {
+    background-color: var(--dark-primary);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem
+}
+.nav__link {
+    font-family: var(--main-font);
+    color: var(--light);
+    font-size: 3rem;
+}
+.nav__link--active,
+.nav__link:hover {
+    color: var(--secondary);
 }

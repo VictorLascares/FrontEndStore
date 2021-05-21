@@ -2,7 +2,7 @@
     --primary: #4A148C;
     --dark-primary: #12005E;
     --secondary: #FFCE00;
-    --dark-secondary: rgb(233,287,2);
+    --dark-secondary: rgb(233,160,1);
     --light: #FFF;
     --dark: #000;
 
@@ -25,7 +25,7 @@ p {
     color: var(--light);
 }
 a { text-decoration: none; }
-img { max-width: 100%; }
+img { width: 100%; }
 h1, h2, h3 {
     text-align: center;
     color: var(--secondary);
@@ -104,7 +104,6 @@ h3 { font-size: 2.4rem; }
         position: relative; 
     }
 }
-.product__image { width: 100%; }
 @media (min-width: 1200px) {
     .product__image { height: 100%; }
 }
@@ -112,7 +111,9 @@ h3 { font-size: 2.4rem; }
 @media (min-width: 1200px) {
     .product__overlay {
         line-height: initial;
-        display: none;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
         position: absolute;
         top: 0;
         width: 100%;
@@ -121,8 +122,12 @@ h3 { font-size: 2.4rem; }
         justify-content: center;
         align-items: center;
         background-color: rgba(0,0,0,.8);
+        transition: visibility 0s, opacity 1s;
     }
-    .product:hover .product__overlay { display: flex; }
+    .product:hover .product__overlay { 
+        visibility: visible;
+        opacity: 1;
+    }
 }
 .product__overlay .btn { display: block; }
 .product__name,
@@ -172,17 +177,10 @@ h3 { font-size: 2.4rem; }
         column-gap: 2rem;
     }
 }
-.us__content {
-    text-align: justify;
-}
-.us__image {
-    width: 100%;
-    grid-row: 1 / 2;
-}
+.us__content { text-align: justify; }
+.us__image { grid-row: 1 / 2; }
 @media (min-width: 768px) {
-    .us__image {
-        grid-column: 2 / 3;
-    }
+    .us__image { grid-column: 2 / 3; }
 }
 /* Buy */
 .blocks {
@@ -198,4 +196,43 @@ h3 { font-size: 2.4rem; }
 .block { text-align: center; }
 .block { width: 100%; }
 .block__title { margin: 0; }
-
+/* Product */
+@media (min-width: 768px) {
+    .tshirt {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.form {
+    display: grid;
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .form { grid-template-columns: repeat(2,1fr); }
+    
+}
+.form__field {
+    border: 1rem solid var(--dark-primary);
+    background-color: transparent;
+    color: var(--light);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+.form__field::placeholder { color: var(--light); }
+.form__submit {
+    background-color: var(--dark-secondary);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--main-font);
+    padding: 2rem;
+    transition: background-color .5s ease;
+}
+@media (min-width: 768px) {
+    .form__submit { grid-column: 1/3; }
+}
+.form__submit:hover {
+    background-color: var(--secondary);
+    cursor: pointer;
+}
